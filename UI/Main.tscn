@@ -1,0 +1,73 @@
+[gd_scene format=2]
+
+[node name="Main" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBox" type="VBoxContainer" parent="."]
+margin_left = 246.1
+margin_top = 89.809
+margin_right = 354.1
+margin_bottom = 183.809
+
+[node name="Label" type="Label" parent="VBox"]
+margin_right = 108.0
+margin_bottom = 14.0
+text = "Client"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBox"]
+margin_top = 18.0
+margin_right = 108.0
+margin_bottom = 42.0
+
+[node name="Label" type="Label" parent="VBox/HBoxContainer"]
+margin_top = 5.0
+margin_right = 46.0
+margin_bottom = 19.0
+text = "Name: "
+
+[node name="LineEdit" type="LineEdit" parent="VBox/HBoxContainer"]
+margin_left = 50.0
+margin_right = 108.0
+margin_bottom = 24.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBox"]
+margin_top = 46.0
+margin_right = 108.0
+margin_bottom = 70.0
+
+[node name="Label" type="Label" parent="VBox/HBoxContainer2"]
+margin_top = 5.0
+margin_right = 21.0
+margin_bottom = 19.0
+text = "IP: "
+
+[node name="LineEdit" type="LineEdit" parent="VBox/HBoxContainer2"]
+margin_left = 25.0
+margin_right = 83.0
+margin_bottom = 24.0
+
+[node name="Button" type="Button" parent="VBox"]
+margin_top = 74.0
+margin_right = 108.0
+margin_bottom = 94.0
+text = "Connect"
+
+[node name="VBox2" type="VBoxContainer" parent="."]
+editor/display_folded = true
+margin_left = 691.646
+margin_top = 96.8071
+margin_right = 732.646
+margin_bottom = 190.807
+
+[node name="Label" type="Label" parent="VBox2"]
+margin_right = 41.0
+margin_bottom = 14.0
+text = "Server"
+
+[node name="StartButton" type="Button" parent="VBox2"]
+margin_top = 18.0
+margin_right = 41.0
+margin_bottom = 38.0
+text = "Start"
+
