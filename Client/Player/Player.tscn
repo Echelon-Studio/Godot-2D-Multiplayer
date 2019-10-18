@@ -15,10 +15,8 @@ shape = SubResource( 1 )
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 
-[node name="Label" type="Label" parent="."]
-margin_left = -29.3222
-margin_top = 36.6528
-margin_right = 10.6778
-margin_bottom = 50.6528
-text = "Name"
-
+[node name="NameLabel" type="Label" parent="."]
+margin_left = -19.9215
+margin_top = 36.1367
+margin_right = 20.0785
+margin_bottom = 50.1367
