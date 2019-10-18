@@ -32,6 +32,8 @@ func _process(delta):
 			move_dir.x -= 1
 		if Input.is_action_pressed("move_right"):
 			move_dir.x += 1
+		if Input.is_action_just_pressed("fire"):
+			gamestate.shoot_bullet_local(position, (get_global_mouse_position() - position).normalized())
 		
 		velocity = move_dir.normalized() * SPEED
 		mousepos = get_global_mouse_position()

@@ -1,5 +1,7 @@
 extends Node
 
+class_name gamestate
+
 # Default game port
 const DEFAULT_PORT = 44444
 
@@ -8,6 +10,8 @@ const MAX_PLAYERS = 12
 
 # Players dict stored as id:name
 var players = {}
+
+const bullet_count = 0
 
 
 func _ready():
@@ -54,11 +58,24 @@ remote func register_player(new_player_name):
 	
 	print("Client ", caller_id, " registered as ", new_player_name)
 
+enum Spawnable {
+	player, bullet
+}
 
 puppetsync func unregister_player(id):
 	players.erase(id)
 	
 	print("Client ", id, " was unregistered")
+
+remote func shoot_bullet(pos: Vector2, direction: Vector2):
+	var caller_id = get_tree().get_rpc_sender_id()
+	var world = get_node("/root/World")
+	var bullet = world.create(Spawnable.bullet, pos, 1)
+	bullet.direction = direction
+	world.get_node("Bullets").add_child(bullet)
+	
+	for p_id in players:
+		world.rpc_id(p_id, "spawn_bullet", pos, 1, String(++bullet_count))
 
 
 remote func populate_world():

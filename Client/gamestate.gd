@@ -14,6 +14,8 @@ var my_name = "Client"
 # Players dict stored as id:name
 var players = {}
 
+var bullet_count = 0
+
 
 func _ready():
 	get_tree().connect("connected_to_server", self, "_connected_ok")
@@ -48,7 +50,6 @@ func _server_disconnected():
 	# Try to connect again
 	connect_to_server()
 
-
 # Callback from SceneTree, called when unabled to connect to server
 func _connected_fail():
 	get_tree().set_network_peer(null) # Remove peer
@@ -65,11 +66,12 @@ puppet func register_player(id, new_player_data):
 puppet func unregister_player(id):
 	players.erase(id)
 
-
 # Returns list of player names
 func get_player_list():
 	return players.values()
 
+func shoot_bullet_local(pos: Vector2, direction: Vector2):
+	rpc_id(1, "shoot_bullet", pos, direction)
 
 puppet func pre_start_game():
 	# Register ourselves with the server
